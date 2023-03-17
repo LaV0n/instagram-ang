@@ -1,0 +1,17 @@
+<div>
+  <h1>parent</h1>
+  <div *ngFor="let lesson of lessons">
+    <div>
+      <h2>
+        {{ lesson.title }}
+      </h2>
+    </div>
+    <div>
+      <h3>grades</h3>
+      <div *ngFor="let grade of lesson.weekGrades">
+        {{ grade.gradeItem }}
+      </div>
+    </div>
+  </div>
+  <inst-child (sendGradeEvent)="getGrade($event)"></inst-child>
+</div>
