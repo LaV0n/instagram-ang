@@ -1,14 +1,9 @@
 import { Component } from '@angular/core'
 
-interface WeekGrade {
-  id: number
-  gradeItem: number
-}
-
-interface Lessons {
-  id: number
-  title: string
-  weekGrades: WeekGrade[]
+interface Fruit {
+  id: string
+  name: string
+  price: number
 }
 
 @Component({
@@ -17,43 +12,17 @@ interface Lessons {
   styleUrls: ['./parent.component.css'],
 })
 export class ParentComponent {
-  lessons: Lessons[] = [
-    {
-      id: 0,
-      title: 'Math',
-      weekGrades: [
-        {
-          id: 0,
-          gradeItem: 5,
-        },
-        {
-          id: 1,
-          gradeItem: 4,
-        },
-        {
-          id: 2,
-          gradeItem: 2,
-        },
-      ],
-    },
-    {
-      id: 1,
-      title: 'Biology',
-      weekGrades: [
-        {
-          id: 0,
-          gradeItem: 2,
-        },
-        {
-          id: 1,
-          gradeItem: 2,
-        },
-        {
-          id: 2,
-          gradeItem: 3,
-        },
-      ],
-    },
+  isLoading = true
+  fruits: Fruit[] = [
+    { id: '1', name: 'apple', price: 10 },
+    { id: '2', name: 'orange', price: 20 },
+    { id: '3', name: 'watermelon', price: 30 },
+    { id: '4', name: 'banana', price: 5 },
+    { id: '5', name: 'pears', price: 12 },
+    { id: '6', name: 'raspberries', price: 18 },
+    { id: '7', name: 'avocados', price: 14 },
+    { id: '8', name: 'mangoes', price: 3 },
+    { id: '9', name: 'kiwifruit', price: 7 },
   ]
 
   getGrade(grade: string) {

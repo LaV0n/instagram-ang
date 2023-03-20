@@ -1,17 +1,19 @@
 <div>
-  <h1>parent</h1>
-  <div *ngFor="let lesson of lessons">
-    <div>
-      <h2>
-        {{ lesson.title }}
+  <h1>fruits</h1>
+  <div *ngFor="let fruit of fruits; even as even; odd as odd">
+    <ng-container *ngIf="fruit.price > 7">
+      <h2
+        [ngClass]="{
+          error: odd,
+          success: even,
+          bigFont: fruit.price > 15
+        }"
+      >
+        {{ fruit.name }}
+        <span>
+          {{ fruit.price }}
+        </span>
       </h2>
-    </div>
-    <div>
-      <h3>grades</h3>
-      <div *ngFor="let grade of lesson.weekGrades">
-        {{ grade.gradeItem }}
-      </div>
-    </div>
+    </ng-container>
   </div>
-  <inst-child (sendGradeEvent)="getGrade($event)"></inst-child>
 </div>
