@@ -1,9 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core'
-
-export interface Grades {
-  math: number
-  physic: number
-}
+import { Component } from '@angular/core'
+import { ValueService } from '../../services/value.service'
+import { Observable } from 'rxjs'
+import { BeautyLoggerService } from '../../services/beauty-logger.service'
 
 @Component({
   selector: 'inst-child',
@@ -11,12 +9,19 @@ export interface Grades {
   styleUrls: ['./child.component.css'],
 })
 export class ChildComponent {
-  name = 'Olga'
+  value$ = new Observable()
 
-  @Output() sendGradeEvent = new EventEmitter<string>()
-  inputGrade = ''
+  constructor(
+    private valueService: ValueService,
+    private beautyLoggerService: BeautyLoggerService
+  ) {}
 
-  sendGradeHandler() {
-    this.sendGradeEvent.emit(this.inputGrade)
+  ngOnInit() {
+    this.value$ = this.valueService.value$
+  }
+
+  decValueHandler() {
+    this.valueService.dec()
+    this.beautyLoggerService.log('dec', 'error')
   }
 }
