@@ -1,7 +1,14 @@
-<inst-parent></inst-parent>
-<hr />
-<inst-child></inst-child>
-<hr />
-<inst-todos></inst-todos>
-<hr />
-<inst-login></inst-login>
+<h1>routing</h1>
+<nav>
+  <a
+    class="button"
+    routerLink="/"
+    routerLinkActive="activebutton"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >Main</a
+  >
+  <a class="button" routerLink="/child" routerLinkActive="activebutton">Child</a>
+  <a class="button" routerLink="/todos" routerLinkActive="activebutton">Todos</a>
+  <a class="button" routerLink="/login" routerLinkActive="activebutton">Login</a>
+</nav>
+<router-outlet></router-outlet>
