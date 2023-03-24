@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http'
 import { LoginComponent } from './login/login.component'
 import { AppRoutingModule } from '../app-routing.module'
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
+import { UsersComponent } from './users/users.component'
+import { ProfileComponent } from './profile/profile.component'
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     TodosComponent,
     LoginComponent,
     PageNotFoundComponent,
+    UsersComponent,
+    ProfileComponent,
   ],
   imports: [BrowserModule, FormsModule, HttpClientModule, ReactiveFormsModule, AppRoutingModule],
   providers: [],
