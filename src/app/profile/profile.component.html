@@ -1,0 +1,5 @@
+<p>profile</p>
+<div *ngIf="profile$ | async; let profile">
+  {{ profile.fullName }} -- {{ profile.lookingForAJob }}
+</div>
+<button (click)="backToUsersHandler()">back to users</button>
