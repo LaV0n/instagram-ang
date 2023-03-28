@@ -31,19 +31,11 @@ interface Contacts {
   providedIn: 'root',
 })
 export class ProfileService {
-  private httpOptions = {
-    withCredentials: true,
-    headers: {
-      'api-key': environmentDevelopment.apiKey,
-    },
-  }
-
   constructor(private http: HttpClient) {}
 
   getProfile(userId: number): Observable<ProfileResponse> {
     return this.http.get<ProfileResponse>(
-      `${environmentDevelopment.baseNetworkUrl}/profile/${userId}`,
-      this.httpOptions
+      `${environmentDevelopment.baseNetworkUrl}/profile/${userId}`
     )
   }
 }
