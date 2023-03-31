@@ -2,29 +2,29 @@ import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { AppComponent } from './app.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { ParentComponent } from './parent/parent.component'
-import { ChildComponent } from './parent/child/child.component'
-import { TodosComponent } from './todos/todos.component'
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
-import { LoginComponent } from './login/login.component'
 import { AppRoutingModule } from '../app-routing.module'
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
-import { UsersComponent } from './users/users.component'
-import { ProfileComponent } from './profile/profile.component'
-import { CredentialsInterceptor } from './interceptors/credentials.interceptor'
+import { CredentialsInterceptor } from './core/interceptors/credentials.interceptor'
+import { HomeModule } from './home/home.module'
+import { AuthModule } from './auth/auth.module'
+import { TodosModule } from './todos/todos.module'
+import { UsersModule } from './users/users.module'
+import { SharedModule } from './shared/shared.module'
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ParentComponent,
-    ChildComponent,
-    TodosComponent,
-    LoginComponent,
-    PageNotFoundComponent,
-    UsersComponent,
-    ProfileComponent,
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HomeModule,
+    AuthModule,
+    TodosModule,
+    UsersModule,
+    SharedModule,
   ],
-  imports: [BrowserModule, FormsModule, HttpClientModule, ReactiveFormsModule, AppRoutingModule],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: CredentialsInterceptor, multi: true }],
   bootstrap: [AppComponent],
 })

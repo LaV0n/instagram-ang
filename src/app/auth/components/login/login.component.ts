@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
-import { BeautyLoggerService } from '../services/beauty-logger.service'
+import { BeautyLoggerService } from '../../../core/services/beauty-logger.service'
 
 @Component({
   selector: 'inst-login',

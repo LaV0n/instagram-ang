@@ -7,7 +7,7 @@ import {
   HttpHeaders,
 } from '@angular/common/http'
 import { Observable } from 'rxjs'
-import { environmentDevelopment } from '../../environments/environment.development'
+import { environmentDevelopment } from '../../../environments/environment.development'
 
 @Injectable()
 export class CredentialsInterceptor implements HttpInterceptor {
